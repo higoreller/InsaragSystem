@@ -19,7 +19,8 @@ namespace InsaragSystem.Domain.Entities.Team
         public string Contact2Email { get; private set; }
         public string BaseOperationLocation { get; private set; }
         public string RadioFrequencyInMHz { get; private set; }
-        public string WorkSiteGpsCoordinates { get; private set; }
+        public GpsCoordinates WorkSiteGpsCoordinates { get; private set; }
+
 
         private ContactDetails() { }
 
@@ -34,7 +35,7 @@ namespace InsaragSystem.Domain.Entities.Team
             string contact2Email,
             string baseOperationLocation,
             string radioFrequencyInMHz,
-            string workSiteGpsCoordinates)
+            GpsCoordinates workSiteGpsCoordinates)
         {
             var builder = new Builder()
                 .WithContact1NameOrTitle(contact1NameOrTitle)
@@ -47,7 +48,7 @@ namespace InsaragSystem.Domain.Entities.Team
                 .WithContact2Email(contact2Email)
                 .WithBaseOperationLocation(baseOperationLocation)
                 .WithRadioFrequencyInMHz(radioFrequencyInMHz)
-                .WithWorkSiteGpsCoordinates(workSiteGpsCoordinates);
+                .WithWorkSiteGpsCoordinates(workSiteGpsCoordinates.Latitude, workSiteGpsCoordinates.Longitude);
 
             var updatedContactDetails = builder.Build();
 
@@ -159,10 +160,9 @@ namespace InsaragSystem.Domain.Entities.Team
                 return this;
             }
 
-            public Builder WithWorkSiteGpsCoordinates(string workSiteGpsCoordinates)
+            public Builder WithWorkSiteGpsCoordinates(double latitude, double longitude)
             {
-                ValidateDomain(nameof(WorkSiteGpsCoordinates), workSiteGpsCoordinates);
-                _contactDetails.WorkSiteGpsCoordinates = workSiteGpsCoordinates;
+                _contactDetails.WorkSiteGpsCoordinates = new GpsCoordinates(latitude, longitude);
                 return this;
             }
 
