@@ -27,112 +27,169 @@ namespace InsaragSystem.Domain.Entities.Disaster
         Severe
     }
 
-    public abstract class DisasterBase
+    public class DisasterBase
     {
         public string DisasterId { get; set; } 
         public string Name { get; set; } 
         public DisasterType Type { get; set; } 
         public DisasterScope Scope { get; set; } 
         public DateTime DateStarted { get; set; } 
-        public DateTime? DateEnded { get; set; } 
-        public GpsCoordinates Epicenter { get; set; } 
+        public DateTime DateEnded { get; set; } 
+        public GpsCoordinates? Epicenter { get; set; } 
         public string Description { get; set; } 
         public List<string> AffectedAreas { get; set; } 
         public bool IsActive { get; set; } 
         public List<string> InvolvedTeams { get; set; }
-        public DisasterImpactLevel ImpactLevel { get; set; } // Level of impact of the disaster
-        public string InitiatingEvent { get; set; } // The event that led to the disaster, if known
-        public List<string> ReliefResources { get; set; } // List of resources available for relief efforts
-        public List<string> ImmediateNeeds { get; set; } // List of immediate needs for affected areas
-        public int EstimatedAffectedPopulation { get; set; } // Estimated number of people affected
-        public int EstimatedCasualties { get; set; } // Estimated number of casualties
-        public int EstimatedDisplacedPersons { get; set; } // Estimated number of displaced persons
-        public decimal EstimatedEconomicLoss { get; set; } // Estimated economic loss in dollars
+        public DisasterImpactLevel ImpactLevel { get; set; } 
+        public string InitiatingEvent { get; set; } 
+        public List<string> ReliefResources { get; set; } 
+        public List<string> ImmediateNeeds { get; set; } 
+        public int EstimatedAffectedPopulation { get; set; } 
+        public int EstimatedCasualties { get; set; } 
+        public int EstimatedDisplacedPersons { get; set; } 
+        public decimal EstimatedEconomicLoss { get; set; }
 
-        public void AddAffectedArea(string area)
+        internal DisasterBase() { }
+
+        public class Builder
         {
-            AffectedAreas.Add(area);
+            private readonly DisasterBase _disaster = new();
+
+            public Builder WithDisasterId(string disasterId)
+            {
+                _disaster.DisasterId = disasterId;
+                return this;
+            }
+
+            public Builder WithName(string name)
+            {
+                _disaster.Name = name;
+                return this;
+            }
+
+            public Builder WithType(DisasterType type)
+            {
+                _disaster.Type = type;
+                return this;
+            }
+
+            public Builder WithScope(DisasterScope scope)
+            {
+                _disaster.Scope = scope;
+                return this;
+            }
+
+            public Builder WithDateStarted(DateTime dateStarted)
+            {
+                _disaster.DateStarted = dateStarted;
+                return this;
+            }
+
+            public Builder WithDateEnded(DateTime dateEnded)
+            {
+                _disaster.DateEnded = dateEnded;
+                return this;
+            }
+
+            public Builder WithEpicenter(double latitude, double longitude)
+            {
+                _disaster.Epicenter = new GpsCoordinates(latitude, longitude);
+                return this;
+            }
+
+            public Builder WithDescription(string description)
+            {
+                _disaster.Description = description;
+                return this;
+            }
+
+            public Builder AddAffectedArea(string area)
+            {
+                if (_disaster.AffectedAreas == null)
+                {
+                    _disaster.AffectedAreas = new List<string>();
+                }
+                _disaster.AffectedAreas.Add(area);
+                return this;
+            }
+
+            public Builder WithIsActive(bool isActive)
+            {
+                _disaster.IsActive = isActive;
+                return this;
+            }
+
+            public Builder AssignTeam(string teamName)
+            {
+                if (_disaster.InvolvedTeams == null)
+                {
+                    _disaster.InvolvedTeams = new List<string>();
+                }
+                _disaster.InvolvedTeams.Add(teamName);
+                return this;
+            }
+
+            public Builder WithImpactLevel(DisasterImpactLevel impactLevel)
+            {
+                _disaster.ImpactLevel = impactLevel;
+                return this;
+            }
+
+            public Builder WithInitiatingEvent(string initiatingEvent)
+            {
+                _disaster.InitiatingEvent = initiatingEvent;
+                return this;
+            }
+
+            public Builder AddReliefResource(string resource)
+            {
+                if (_disaster.ReliefResources == null)
+                {
+                    _disaster.ReliefResources = new List<string>();
+                }
+                _disaster.ReliefResources.Add(resource);
+                return this;
+            }
+
+            public Builder AddImmediateNeed(string need)
+            {
+                if (_disaster.ImmediateNeeds == null)
+                {
+                    _disaster.ImmediateNeeds = new List<string>();
+                }
+                _disaster.ImmediateNeeds.Add(need);
+                return this;
+            }
+
+            public Builder WithEstimatedAffectedPopulation(int count)
+            {
+                _disaster.EstimatedAffectedPopulation = count;
+                return this;
+            }
+
+            public Builder WithEstimatedCasualties(int count)
+            {
+                _disaster.EstimatedCasualties = count;
+                return this;
+            }
+
+            public Builder WithEstimatedDisplacedPersons(int count)
+            {
+                _disaster.EstimatedDisplacedPersons = count;
+                return this;
+            }
+
+            public Builder WithEstimatedEconomicLoss(decimal amount)
+            {
+                _disaster.EstimatedEconomicLoss = amount;
+                return this;
+            }
+
+            public DisasterBase Build()
+            {
+                return _disaster;
+            }
         }
 
-        public void RemoveAffectedArea(string area)
-        {
-            AffectedAreas.Remove(area);
-        }
-
-        public void AssignTeam(string teamName)
-        {
-            InvolvedTeams.Add(teamName);
-        }
-
-        public void UnassignTeam(string teamName)
-        {
-            InvolvedTeams.Remove(teamName);
-        }
-
-        public void SetEpicenter(double latitude, double longitude)
-        {
-            Epicenter = new GpsCoordinates(latitude, longitude);
-        }
-
-        public void ChangeScope(DisasterScope newScope)
-        {
-            Scope = newScope;
-        }
-
-        public void EndDisaster()
-        {
-            DateEnded = DateTime.Now;
-            IsActive = false;
-        }
-
-        public void UpdateImpactLevel(DisasterImpactLevel level)
-        {
-            ImpactLevel = level;
-        }
-
-        public void AddReliefResource(string resource)
-        {
-            ReliefResources.Add(resource);
-        }
-
-        public void RemoveReliefResource(string resource)
-        {
-            ReliefResources.Remove(resource);
-        }
-
-        public void AddImmediateNeed(string need)
-        {
-            ImmediateNeeds.Add(need);
-        }
-
-        public void RemoveImmediateNeed(string need)
-        {
-            ImmediateNeeds.Remove(need);
-        }
-
-        public void UpdateEstimatedAffectedPopulation(int count)
-        {
-            EstimatedAffectedPopulation = count;
-        }
-
-        public void UpdateEstimatedCasualties(int count)
-        {
-            EstimatedCasualties = count;
-        }
-
-        public void UpdateEstimatedDisplacedPersons(int count)
-        {
-            EstimatedDisplacedPersons = count;
-        }
-
-        public void UpdateEstimatedEconomicLoss(decimal amount)
-        {
-            EstimatedEconomicLoss = amount;
-        }
-
-        public override string ToString()
-        {
-            return $"{Name} ({Type}) - Started on {DateStarted.ToShortDateString()}";
-        }
     }
 }

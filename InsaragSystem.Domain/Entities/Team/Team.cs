@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InsaragSystem.Domain.Entities.Disaster;
 
 namespace InsaragSystem.Domain.Entities.Team
 {
@@ -83,5 +84,8 @@ namespace InsaragSystem.Domain.Entities.Team
                 newTeamDetails.AircraftType
             );
         }
+
+        public int DisasterId { get; set; }
+        public DisasterBase Disaster { get; set; }
     }
 }
