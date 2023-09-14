@@ -1,0 +1,117 @@
+﻿<!-- ========== Left Sidebar Start ========== -->
+<div class="vertical-menu">
+
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <a href="@Url.Action("Index", "Dashboard")" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="~/assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="~/assets/images/logo-dark.png" alt="" height="20">
+            </span>
+        </a>
+
+        <a href="@Url.Action("Index", "Dashboard")" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="~/assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="~/assets/images/logo-light.png" alt="" height="20">
+            </span>
+        </a>
+    </div>
+
+    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+        <i class="fa fa-fw fa-bars"></i>
+    </button>
+
+    <div data-simplebar class="sidebar-menu-scroll">
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title">Menu</li>
+
+                <li>
+                    <a href="@Url.Action("Index", "Dashboard")">
+                        <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-window-section"></i>
+                        <span>Layouts</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">Vertical</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="@Url.Action("dark-sidebar", "Layout")">Dark Sidebar</a></li>
+                                <li><a href="@Url.Action("compact-sidebar", "Layout")">Compact Sidebar</a></li>
+                                <li><a href="@Url.Action("icon-sidebar", "Layout")">Icon Sidebar</a></li>
+                                <li><a href="@Url.Action("boxed-width", "Layout")">Boxed Width</a></li>
+                                <li><a href="@Url.Action("preloader", "Layout")">Preloader</a></li>
+                                <li><a href="@Url.Action("colored-sidebar", "Layout")">Colored Sidebar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="@Url.Action("horizontal", "Layout")">Horizontal</a></li>
+                                <li><a href="@Url.Action("horizontal-topbar", "Layout")">Topbar Dark</a></li>
+                                <li><a href="@Url.Action("horizontal-boxed-width", "Layout")">Boxed Width</a></li>
+                                <li><a href="@Url.Action("horizontal-preloader", "Layout")">Preloader</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+             
+
+                <li class="menu-title">Pages</li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-user-circle"></i>
+                        <span>Authentication</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="@Url.Action("login", "Auth")">Login</a></li>
+                        <li><a href="@Url.Action("register", "Auth")">Register</a></li>
+                        <li><a href="@Url.Action("recoverpassword", "Auth")">Recover Password</a></li>
+                        <li><a href="@Url.Action("lockscreen", "Auth")">Lock Screen</a></li>
+                    </ul>
+                </li>
+
+             
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="uil-share-alt"></i>
+                        <span>Multi Level</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="javascript: void(0);">Level 1.1</a></li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="javascript: void(0);">Level 2.1</a></li>
+                                <li><a href="javascript: void(0);">Level 2.2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+<!-- Left Sidebar End -->
+
+
+

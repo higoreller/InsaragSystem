@@ -22,8 +22,8 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
                    .HasForeignKey(sd => sd.SectorId);
 
             builder.HasMany(s => s.AssignedTeams)
-                   .WithOne(t => t.Sector) // Presumindo que Team tem uma propriedade Sector
-                   .HasForeignKey(t => t.SectorId); // Presumindo que Team tem uma chave estrangeira SectorId
+                   .WithOne(t => t.AssignedSector)
+                   .HasForeignKey(t => t.AssignedSectorId);
         }
     }
 
