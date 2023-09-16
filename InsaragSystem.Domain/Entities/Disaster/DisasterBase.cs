@@ -29,7 +29,7 @@ namespace InsaragSystem.Domain.Entities.Disaster
 
     public class DisasterBase
     {
-        public string DisasterId { get; set; } 
+        public int DisasterId { get; set; } 
         public string Name { get; set; } 
         public DisasterType Type { get; set; } 
         public DisasterScope Scope { get; set; } 
@@ -62,7 +62,7 @@ namespace InsaragSystem.Domain.Entities.Disaster
         {
             private readonly DisasterBase _disaster = new();
 
-            public Builder WithDisasterId(string disasterId)
+            public Builder WithDisasterId(int disasterId)
             {
                 _disaster.DisasterId = disasterId;
                 return this;

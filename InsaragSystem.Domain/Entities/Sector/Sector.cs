@@ -88,7 +88,7 @@ namespace InsaragSystem.Domain.Entities.Sector
                         
         }
 
-        public string DisasterId { get; set; }
+        public int DisasterId { get; set; }
         public DisasterBase Disaster { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration.SectorConfigurations
                    .HasColumnType("char(1)");
 
             builder.HasOne(s => s.Subdivision)
-                   .WithMany()
+                   .WithMany(sd => sd.Subfields)
                    .HasForeignKey(s => s.SubdivisionId);
         }
     }

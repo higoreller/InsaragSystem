@@ -13,7 +13,7 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration.DisasterConfigurations
     {
         public void Configure(EntityTypeBuilder<Wildfire> builder)
         {
-            builder.Property(w => w.BurnedArea).IsRequired();
+            builder.Property(w => w.BurnedArea).IsRequired().HasColumnType("decimal(18, 2)");
         }
     }
 }

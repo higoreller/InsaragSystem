@@ -1,5 +1,6 @@
 ﻿using InsaragSystem.Domain.Entities.Disaster;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,41 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration.DisasterConfigurations
             builder.Property(p => p.EstimatedAffectedPopulation);
             builder.Property(p => p.EstimatedCasualties);
             builder.Property(p => p.EstimatedDisplacedPersons);
-            builder.Property(p => p.EstimatedEconomicLoss);
-                      
+            builder.Property(p => p.EstimatedEconomicLoss).HasColumnType("decimal(18, 2)");
+
+            builder.Property(p => p.AffectedAreas)
+                   .HasConversion(
+                       v => string.Join(',', v),
+                       v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                   )
+                   .Metadata.SetValueComparer(new ValueComparer<List<string>>(
+                       (c1, c2) => c1.SequenceEqual(c2),
+                       c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                       c => c.ToList()
+                   ));
+
+            builder.Property(p => p.ReliefResources)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                    )
+                    .Metadata.SetValueComparer(new ValueComparer<List<string>>(
+                        (c1, c2) => c1.SequenceEqual(c2),
+                        c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                        c => c.ToList()
+                    ));
+
+            builder.Property(p => p.ImmediateNeeds)
+                    .HasConversion(
+                        v => string.Join(',', v),
+                        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                    )
+                    .Metadata.SetValueComparer(new ValueComparer<List<string>>(
+                        (c1, c2) => c1.SequenceEqual(c2),
+                        c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+                        c => c.ToList()
+                    ));
+
 
             // Relations
             builder.HasMany(e => e.Teams).WithOne().HasForeignKey(e => e.DisasterId);
