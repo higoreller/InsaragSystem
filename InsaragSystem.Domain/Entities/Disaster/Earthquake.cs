@@ -8,7 +8,7 @@ namespace InsaragSystem.Domain.Entities.Disaster
 {
     public class Earthquake : DisasterBase
     {
-        public double Magnitude { get; set; }  // Richter scale
-        public double Depth { get; set; }  // in kilometers
+        public double Magnitude { get; set; } 
+        public double Depth { get; set; }
     }
 }

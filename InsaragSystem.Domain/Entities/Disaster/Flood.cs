@@ -8,5 +8,6 @@ namespace InsaragSystem.Domain.Entities.Disaster
 {
     public class Flood : DisasterBase
     {
+        public double FloodedArea { get; private set; }
     }
 }

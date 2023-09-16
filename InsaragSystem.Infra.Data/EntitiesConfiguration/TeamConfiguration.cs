@@ -15,6 +15,27 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
         {
             builder.HasKey(t => t.Id);
             builder.Property(p => p.TeamDetails.Name).HasMaxLength(100).IsRequired();
+            
+            builder.HasOne(t => t.ContactDetails)
+                .WithOne()
+                .HasForeignKey<Team>("ContactDetailsId");
+
+            builder.HasOne(t => t.SupportRequirements)
+                .WithOne()
+                .HasForeignKey<Team>("SupportRequirementsId");
+
+            builder.HasOne(t => t.TeamDetails)
+                .WithOne()
+                .HasForeignKey<Team>("TeamDetailsId");
+
+            builder.HasOne(t => t.Disaster)
+                .WithMany(d => d.Teams)
+                .HasForeignKey(t => t.DisasterId);
+
+            builder.HasOne(t => t.AssignedSector)
+                .WithMany()
+                .HasForeignKey(t => t.AssignedSectorId)
+                .IsRequired(false);
         }
     }
 }

@@ -39,7 +39,6 @@ namespace InsaragSystem.Domain.Entities.Disaster
         public string Description { get; set; } 
         public List<string> AffectedAreas { get; set; } 
         public bool IsActive { get; set; } 
-        public List<string> InvolvedTeams { get; set; }
         public DisasterImpactLevel ImpactLevel { get; set; } 
         public string InitiatingEvent { get; set; } 
         public List<string> ReliefResources { get; set; } 
@@ -48,8 +47,16 @@ namespace InsaragSystem.Domain.Entities.Disaster
         public int EstimatedCasualties { get; set; } 
         public int EstimatedDisplacedPersons { get; set; } 
         public decimal EstimatedEconomicLoss { get; set; }
+        public virtual ICollection<Team.Team> Teams { get; set; }
+        public virtual ICollection<Sector.Sector> Sectors { get; set; }
 
-        internal DisasterBase() { }
+        protected DisasterBase()
+        {
+            AffectedAreas = new List<string>();
+            ReliefResources = new List<string>();
+            ImmediateNeeds = new List<string>();
+            Teams = new List<Team.Team>();
+        }
 
         public class Builder
         {
@@ -119,16 +126,6 @@ namespace InsaragSystem.Domain.Entities.Disaster
                 return this;
             }
 
-            public Builder AssignTeam(string teamName)
-            {
-                if (_disaster.InvolvedTeams == null)
-                {
-                    _disaster.InvolvedTeams = new List<string>();
-                }
-                _disaster.InvolvedTeams.Add(teamName);
-                return this;
-            }
-
             public Builder WithImpactLevel(DisasterImpactLevel impactLevel)
             {
                 _disaster.ImpactLevel = impactLevel;
@@ -182,6 +179,20 @@ namespace InsaragSystem.Domain.Entities.Disaster
             public Builder WithEstimatedEconomicLoss(decimal amount)
             {
                 _disaster.EstimatedEconomicLoss = amount;
+                return this;
+            }
+
+            public Builder AddTeam(Team.Team team)
+            {
+                if (team == null) throw new ArgumentNullException(nameof(team));
+                _disaster.Teams.Add(team);
+                return this;
+            }
+
+            public Builder RemoveTeam(Team.Team team)
+            {
+                if (team == null) throw new ArgumentNullException(nameof(team));
+                _disaster.Teams.Remove(team);
                 return this;
             }
 

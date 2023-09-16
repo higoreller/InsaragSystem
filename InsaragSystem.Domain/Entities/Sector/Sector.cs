@@ -85,10 +85,10 @@ namespace InsaragSystem.Domain.Entities.Sector
             {
                 return _sector;
             }
-
-            public string DisasterId { get; set; }
-            public DisasterBase Disaster { get; set; }
-
+                        
         }
+
+        public string DisasterId { get; set; }
+        public DisasterBase Disaster { get; set; }
     }
 }
