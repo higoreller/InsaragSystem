@@ -8,6 +8,7 @@ namespace InsaragSystem.Domain.Entities
 {
     public class GpsCoordinates
     {
+        public int Id { get; set; }
         public double Latitude { get; private set; }
         public double Longitude { get; private set; }
 

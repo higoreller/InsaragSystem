@@ -78,8 +78,7 @@ namespace InsaragSystem.Domain.Entities.Team
                 newTeamDetails.OtherCapabilities,
                 newTeamDetails.DaysOfWaterAutonomy,
                 newTeamDetails.DaysOfFoodAutonomy,
-                newTeamDetails.EstimatedArrivalDate,
-                newTeamDetails.EstimatedArrivalTime,
+                newTeamDetails.EstimatedArrivalDateTime,
                 newTeamDetails.ArrivalPoint,
                 newTeamDetails.AircraftType
             );

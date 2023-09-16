@@ -14,7 +14,6 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<Team> builder)
         {
             builder.HasKey(t => t.Id);
-            builder.Property(p => p.TeamDetails.Name).HasMaxLength(100).IsRequired();
             
             builder.HasOne(t => t.ContactDetails)
                 .WithOne()

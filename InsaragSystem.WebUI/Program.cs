@@ -1,7 +1,12 @@
+using InsaragSystem.Infra.IoC;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add services from Infra.IoC - Dependency injection.
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

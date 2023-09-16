@@ -47,7 +47,7 @@ namespace InsaragSystem.Domain.Tests
             createdTeam.ContactDetails.Contact1NameOrTitle.Should().Be("Higor Eller");
             createdTeam.ContactDetails.Contact1Email.Should().Be("higoreller29@gmail.com");
             createdTeam.TeamDetails.Name.Should().Be("BRA-13");
-            createdTeam.TeamDetails.EstimatedArrivalDate.Should().Be(DateOnly.MinValue);
+            createdTeam.TeamDetails.EstimatedArrivalDateTime.Should().Be(DateTime.MinValue);
 
         }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InsaragSystem.Infra.Data.EntitiesConfiguration
+namespace InsaragSystem.Infra.Data.EntitiesConfiguration.SectorConfigurations
 {
     public class SubdivisionConfiguration : IEntityTypeConfiguration<Subdivision>
     {

@@ -28,8 +28,7 @@ namespace InsaragSystem.Domain.Entities.Team
         public string OtherCapabilities { get; private set; }
         public int DaysOfWaterAutonomy { get; private set; }
         public int DaysOfFoodAutonomy { get; private set; }
-        public DateOnly EstimatedArrivalDate { get; private set; }
-        public TimeOnly EstimatedArrivalTime { get; private set; }
+        public DateTime EstimatedArrivalDateTime { get; private set; }
         public string ArrivalPoint { get; private set; }
         public string AircraftType { get; private set; }
 
@@ -58,8 +57,7 @@ namespace InsaragSystem.Domain.Entities.Team
             string otherCapabilities,
             int daysOfWaterAutonomy,
             int daysOfFoodAutonomy,
-            DateOnly estimatedArrivalDate,
-            TimeOnly estimatedArrivalTime,
+            DateTime estimatedArrivalDateTime,
             string arrivalPoint,
             string aircraftType)
         {
@@ -83,8 +81,7 @@ namespace InsaragSystem.Domain.Entities.Team
                 .WithOtherCapabilities(otherCapabilities)
                 .WithDaysOfWaterAutonomy(daysOfWaterAutonomy)
                 .WithDaysOfFoodAutonomy(daysOfFoodAutonomy)
-                .WithEstimatedArrivalDate(estimatedArrivalDate)
-                .WithEstimatedArrivalTime(estimatedArrivalTime)
+                .WithEstimatedArrivalDateTime(estimatedArrivalDateTime)
                 .WithArrivalPoint(arrivalPoint)
                 .WithAircraftType(aircraftType);
 
@@ -109,8 +106,7 @@ namespace InsaragSystem.Domain.Entities.Team
             OtherCapabilities = updatedDetails.OtherCapabilities;
             DaysOfWaterAutonomy = updatedDetails.DaysOfWaterAutonomy;
             DaysOfFoodAutonomy = updatedDetails.DaysOfFoodAutonomy;
-            EstimatedArrivalDate = updatedDetails.EstimatedArrivalDate;
-            EstimatedArrivalTime = updatedDetails.EstimatedArrivalTime;
+            EstimatedArrivalDateTime = updatedDetails.EstimatedArrivalDateTime;
             ArrivalPoint = updatedDetails.ArrivalPoint;
             AircraftType = updatedDetails.AircraftType;
         }
@@ -277,14 +273,9 @@ namespace InsaragSystem.Domain.Entities.Team
                 _teamDetails.DaysOfFoodAutonomy = daysOfFoodAutonomy;
                 return this;
             }
-            public Builder WithEstimatedArrivalDate(DateOnly estimatedArrivalDate)
+            public Builder WithEstimatedArrivalDateTime(DateTime estimatedArrivalDateTime)
             {
-                _teamDetails.EstimatedArrivalDate = estimatedArrivalDate;
-                return this;
-            }
-            public Builder WithEstimatedArrivalTime(TimeOnly estimatedArrivalTime)
-            {
-                _teamDetails.EstimatedArrivalTime = estimatedArrivalTime;
+                _teamDetails.EstimatedArrivalDateTime = estimatedArrivalDateTime;
                 return this;
             }
             public Builder WithArrivalPoint(string arrivalPoint)

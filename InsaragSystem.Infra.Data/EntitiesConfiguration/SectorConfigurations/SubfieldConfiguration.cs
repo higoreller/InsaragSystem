@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InsaragSystem.Infra.Data.EntitiesConfiguration
+namespace InsaragSystem.Infra.Data.EntitiesConfiguration.SectorConfigurations
 {
     public class SubfieldConfiguration : IEntityTypeConfiguration<Subfield>
     {
@@ -17,10 +17,10 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
 
             builder.Property(s => s.Code)
                    .IsRequired()
-                   .HasColumnType("char(1)"); 
+                   .HasColumnType("char(1)");
 
             builder.HasOne(s => s.Subdivision)
-                   .WithMany() 
+                   .WithMany()
                    .HasForeignKey(s => s.SubdivisionId);
         }
     }

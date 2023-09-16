@@ -14,7 +14,9 @@ namespace InsaragSystem.Infra.Data.Context
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<DisasterBase> Disasters { get; set; }
+        public DbSet<Earthquake> Earthquakes { get; set; }
+        public DbSet<Flood> Floods { get; set; }
+        public DbSet<Wildfire> Wildfires { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Subdivision> Subdivisions { get; set; }
@@ -23,12 +25,6 @@ namespace InsaragSystem.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.Entity<DisasterBase>()
-                .HasDiscriminator<DisasterType>("Type")
-                .HasValue<Wildfire>(DisasterType.Wildfire)
-                .HasValue<Earthquake>(DisasterType.Earthquake)
-                .HasValue<Flood>(DisasterType.Flood);
 
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
