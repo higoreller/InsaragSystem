@@ -1,4 +1,5 @@
 ﻿using InsaragSystem.Domain.Validation;
+using InsaragSystem.Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,7 @@ namespace InsaragSystem.Domain.Entities.Team
                 .WithContact2Email(contact2Email)
                 .WithBaseOperationLocation(baseOperationLocation)
                 .WithRadioFrequencyInMHz(radioFrequencyInMHz)
-                .WithWorkSiteGpsCoordinates(workSiteGpsCoordinates.Latitude, workSiteGpsCoordinates.Longitude);
+                .WithWorkSiteGpsCoordinates(workSiteGpsCoordinates);
 
             var updatedContactDetails = builder.Build();
 
@@ -69,100 +70,80 @@ namespace InsaragSystem.Domain.Entities.Team
         {
             private readonly ContactDetails _contactDetails = new();
 
-            private static void ValidateDomain(string propertyName, string value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(Contact1NameOrTitle):
-                    case nameof(Contact1MobilePhoneNumber):
-                    case nameof(Contact1SatellitePhoneNumber):
-                    case nameof(Contact1Email):
-                        DomainExceptionValidation.When(string.IsNullOrWhiteSpace(value), $"{propertyName} cannot be null or whitespace.");
-                        break;
-                    case nameof(Contact2NameOrTitle):
-                    case nameof(Contact2MobilePhoneNumber):
-                    case nameof(Contact2SatellitePhoneNumber):
-                    case nameof(Contact2Email):
-                    case nameof(BaseOperationLocation):
-                    case nameof(RadioFrequencyInMHz):
-                    case nameof(WorkSiteGpsCoordinates):
-                        break;
-                }
-            }
-
             public Builder WithContact1NameOrTitle(string contact1NameOrTitle)
             {
-                ValidateDomain(nameof(Contact1NameOrTitle), contact1NameOrTitle);
+                ContactDetailsValidation.ValidateContactName(contact1NameOrTitle);
                 _contactDetails.Contact1NameOrTitle = contact1NameOrTitle;
                 return this;
             }
 
             public Builder WithContact1MobilePhoneNumber(string contact1MobilePhoneNumber)
             {
-                ValidateDomain(nameof(Contact1MobilePhoneNumber), contact1MobilePhoneNumber);
+                ContactDetailsValidation.ValidateMobilePhoneNumber(contact1MobilePhoneNumber);
                 _contactDetails.Contact1MobilePhoneNumber = contact1MobilePhoneNumber;
                 return this;
             }
 
             public Builder WithContact1SatellitePhoneNumber(string contact1SatellitePhoneNumber)
             {
-                ValidateDomain(nameof(Contact1SatellitePhoneNumber), contact1SatellitePhoneNumber);
+                ContactDetailsValidation.ValidateSatellitePhoneNumber(contact1SatellitePhoneNumber);
                 _contactDetails.Contact1SatellitePhoneNumber = contact1SatellitePhoneNumber;
                 return this;
             }
 
             public Builder WithContact1Email(string contact1Email)
             {
-                ValidateDomain(nameof(Contact1Email), contact1Email);
+                ContactDetailsValidation.ValidateEmail(contact1Email);
                 _contactDetails.Contact1Email = contact1Email;
                 return this;
             }
 
             public Builder WithContact2NameOrTitle(string contact2NameOrTitle)
             {
-                ValidateDomain(nameof(Contact2NameOrTitle), contact2NameOrTitle);
+                ContactDetailsValidation.ValidateContactName(contact2NameOrTitle);
                 _contactDetails.Contact2NameOrTitle = contact2NameOrTitle;
                 return this;
             }
 
             public Builder WithContact2MobilePhoneNumber(string contact2MobilePhoneNumber)
             {
-                ValidateDomain(nameof(Contact2MobilePhoneNumber), contact2MobilePhoneNumber);
+                ContactDetailsValidation.ValidateMobilePhoneNumber(contact2MobilePhoneNumber);
                 _contactDetails.Contact2MobilePhoneNumber = contact2MobilePhoneNumber;
                 return this;
             }
 
             public Builder WithContact2SatellitePhoneNumber(string contact2SatellitePhoneNumber)
             {
-                ValidateDomain(nameof(Contact2SatellitePhoneNumber), contact2SatellitePhoneNumber);
+                ContactDetailsValidation.ValidateSatellitePhoneNumber(contact2SatellitePhoneNumber);
                 _contactDetails.Contact2SatellitePhoneNumber = contact2SatellitePhoneNumber;
                 return this;
             }
 
             public Builder WithContact2Email(string contact2Email)
             {
-                ValidateDomain(nameof(Contact2Email), contact2Email);
+                ContactDetailsValidation.ValidateEmail(contact2Email);
                 _contactDetails.Contact2Email = contact2Email;
                 return this;
             }
 
             public Builder WithBaseOperationLocation(string baseOperationLocation)
             {
-                ValidateDomain(nameof(BaseOperationLocation), baseOperationLocation);
+                ContactDetailsValidation.ValidateBaseOperationLocation(baseOperationLocation);
                 _contactDetails.BaseOperationLocation = baseOperationLocation;
                 return this;
             }
 
             public Builder WithRadioFrequencyInMHz(string radioFrequencyInMHz)
             {
-                ValidateDomain(nameof(RadioFrequencyInMHz), radioFrequencyInMHz);
+                ContactDetailsValidation.ValidateRadioFrequency(radioFrequencyInMHz);
                 _contactDetails.RadioFrequencyInMHz = radioFrequencyInMHz;
                 return this;
             }
 
-            public Builder WithWorkSiteGpsCoordinates(double latitude, double longitude)
+            public Builder WithWorkSiteGpsCoordinates(GpsCoordinates gpsCoordinates)
             {
-                _contactDetails.WorkSiteGpsCoordinates = new GpsCoordinates(latitude, longitude);
+                ContactDetailsValidation.ValidateGpsCoordinates(gpsCoordinates);
+                _contactDetails.WorkSiteGpsCoordinates = new GpsCoordinates(gpsCoordinates.Latitude, gpsCoordinates.Longitude);
                 return this;
             }
 

@@ -1,4 +1,5 @@
 ﻿using InsaragSystem.Domain.Validation;
+using InsaragSystem.Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,104 +116,65 @@ namespace InsaragSystem.Domain.Entities.Team
         public class Builder
         {
             private readonly TeamDetails _teamDetails = new();
-
-            private static void ValidateDomain(string propertyName, int value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(Id):
-                    case nameof(TotalDeployedPeople):
-                    case nameof(TotalDeployedDogs):
-                    case nameof(NumberOfStructuralEngineers):
-                    case nameof(DaysOfWaterAutonomy):
-                    case nameof(DaysOfFoodAutonomy):
-                        DomainExceptionValidation.When(value < 0, $"Invalid {propertyName}. The {propertyName} cannot be negative.");
-                        break;
-
-                }
-            }
-
-            private static void ValidateDomain(string propertyName, string value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(Name):
-                        DomainExceptionValidation.When(string.IsNullOrWhiteSpace(value), $"{propertyName} cannot be null or whitespace.");
-                        DomainExceptionValidation.When(value.Length > 100, $"{propertyName} cannot be more than 100 characters.");
-                        break;
-                    case nameof(OlympicCountryCode):
-                    case nameof(CountryOfOrigin):
-                    case nameof(ResponseType):
-                    case nameof(InsaragClassification):
-                    case nameof(OtherCapabilities):
-                    case nameof(ArrivalPoint):
-                    case nameof(AircraftType):
-                        DomainExceptionValidation.When(string.IsNullOrWhiteSpace(value), $"{propertyName} cannot be null or whitespace.");
-                        break;
-                }
-            }
-
-
-
+                     
             public Builder WithId(int id)
             {
-                ValidateDomain(nameof(Id), id);
+                TeamDetailsValidation.ValidateId(id);
                 _teamDetails.Id = id;
                 return this;
             }
 
             public Builder WithOlympicCountryCode(string olympicCountryCode)
             {
-                ValidateDomain(nameof(OlympicCountryCode), olympicCountryCode);
+                TeamDetailsValidation.ValidateOlympicCountryCode(olympicCountryCode);
                 _teamDetails.OlympicCountryCode = olympicCountryCode;
                 return this;
             }
 
             public Builder WithName(string name)
             {
-                ValidateDomain(nameof(Name), name);
+                TeamDetailsValidation.ValidateName(name);
                 _teamDetails.Name = name;
                 return this;
             }
 
             public Builder WithCountryOfOrigin(string countryOfOrigin)
             {
-                ValidateDomain(nameof(CountryOfOrigin), countryOfOrigin);
+                TeamDetailsValidation.ValidateCountryOfOrigin(countryOfOrigin);
                 _teamDetails.CountryOfOrigin = countryOfOrigin;
                 return this;
             }
 
             public Builder WithTotalDeployedPeople(int totalDeployedPeople)
             {
-                ValidateDomain(nameof(TotalDeployedPeople), totalDeployedPeople);
+                TeamDetailsValidation.ValidateTotalDeployedPeople(totalDeployedPeople);
                 _teamDetails.TotalDeployedPeople = totalDeployedPeople;
                 return this;
             }
 
             public Builder WithTotalDeployedDogs(int totalDeployedDogs)
             {
-                ValidateDomain(nameof(TotalDeployedDogs), totalDeployedDogs);
+                TeamDetailsValidation.ValidateTotalDeployedDogs(totalDeployedDogs);
                 _teamDetails.TotalDeployedDogs = totalDeployedDogs;
                 return this;
             }
 
             public Builder WithResponseType(string responseType)
             {
-                ValidateDomain(nameof(ResponseType), responseType);
+                TeamDetailsValidation.ValidateResponseType(responseType);
                 _teamDetails.ResponseType = responseType;
                 return this;
             }
 
             public Builder WithInsaragClassification(string insaragClassification)
             {
-                ValidateDomain(nameof(InsaragClassification), insaragClassification);
+                TeamDetailsValidation.ValidateInsaragClassification(insaragClassification);
                 _teamDetails.InsaragClassification = insaragClassification;
                 return this;
             }
 
             public Builder WithHasTechnicalSearchCapability(bool hasTechnicalSearchCapability)
             {
-
                 _teamDetails.HasTechnicalSearchCapability = hasTechnicalSearchCapability;
                 return this;
             }
@@ -241,7 +203,7 @@ namespace InsaragSystem.Domain.Entities.Team
             }
             public Builder WithNumberOfStructuralEngineers(int numberOfStructuralEngineers)
             {
-                ValidateDomain(nameof(NumberOfStructuralEngineers), numberOfStructuralEngineers);
+                TeamDetailsValidation.ValidateNumberOfStructuralEngineers(numberOfStructuralEngineers);
                 _teamDetails.NumberOfStructuralEngineers = numberOfStructuralEngineers;
                 return this;
             }
@@ -257,36 +219,37 @@ namespace InsaragSystem.Domain.Entities.Team
             }
             public Builder WithOtherCapabilities(string otherCapabilities)
             {
-                ValidateDomain(nameof(OtherCapabilities), otherCapabilities);
+                TeamDetailsValidation.ValidateOtherCapabilities(otherCapabilities);
                 _teamDetails.OtherCapabilities = otherCapabilities;
                 return this;
             }
             public Builder WithDaysOfWaterAutonomy(int daysOfWaterAutonomy)
             {
-                ValidateDomain(nameof(DaysOfWaterAutonomy), daysOfWaterAutonomy);
+                TeamDetailsValidation.ValidateDaysOfWaterAutonomy(daysOfWaterAutonomy);
                 _teamDetails.DaysOfWaterAutonomy = daysOfWaterAutonomy;
                 return this;
             }
             public Builder WithDaysOfFoodAutonomy(int daysOfFoodAutonomy)
             {
-                ValidateDomain(nameof(DaysOfFoodAutonomy), daysOfFoodAutonomy);
+                TeamDetailsValidation.ValidateDaysOfFoodAutonomy(daysOfFoodAutonomy);
                 _teamDetails.DaysOfFoodAutonomy = daysOfFoodAutonomy;
                 return this;
             }
             public Builder WithEstimatedArrivalDateTime(DateTime estimatedArrivalDateTime)
             {
+                TeamDetailsValidation.ValidateEstimatedArrivalDateTime(estimatedArrivalDateTime);
                 _teamDetails.EstimatedArrivalDateTime = estimatedArrivalDateTime;
                 return this;
             }
             public Builder WithArrivalPoint(string arrivalPoint)
             {
-                ValidateDomain(nameof(ArrivalPoint), arrivalPoint);
+                TeamDetailsValidation.ValidateArrivalPoint(arrivalPoint);
                 _teamDetails.ArrivalPoint = arrivalPoint;
                 return this;
             }
             public Builder WithAircraftType(string aircraftType)
             {
-                ValidateDomain(nameof(AircraftType), aircraftType);
+                TeamDetailsValidation.ValidateAircraftType(aircraftType);
                 _teamDetails.AircraftType = aircraftType;
                 return this;
             }
