@@ -1,5 +1,5 @@
 ﻿using InsaragSystem.Domain.Validation;
-using InsaragSystem.Domain.Validations;
+using InsaragSystem.Domain.Validations.TeamValidations;
 using System;
 using System.Collections.Generic;
 using System.Linq;

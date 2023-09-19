@@ -19,7 +19,7 @@ namespace InsaragSystem.Domain.Entities.Sector
         public SectorCode Code { get; set; }
         public List<Team.Team> AssignedTeams { get; set; }
         public List<Subdivision> Subdivisions { get; set; }
-
+        
         public Sector()
         {
             AssignedTeams = new List<Team.Team>();

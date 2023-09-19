@@ -1,4 +1,5 @@
 ﻿using InsaragSystem.Domain.Validation;
+using InsaragSystem.Domain.Validations.TeamValidations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,117 +67,81 @@ namespace InsaragSystem.Domain.Entities.Team
         public class Builder
         {
             private readonly SupportRequirements _supportRequirements = new();
-
-            private static void ValidateDomain(string propertyName, double value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(TotalEquipmentWeightInTons):
-                    case nameof(TotalEquipmentVolumeInCubicMeters):
-                    case nameof(DailyGasolineRequirementInLiters):
-                    case nameof(DailyDieselRequirementInLiters):
-                    case nameof(RequiredBaseOperationSpaceInSquareMeters):
-                        DomainExceptionValidation.When(value < 0, $"Invalid {propertyName}. The {propertyName} cannot be negative.");
-                        break;
-                }
-            }
-
-            private static void ValidateDomain(string propertyName, int value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(TotalPeopleToTransport):
-                    case nameof(TotalDogsToTransport):
-                    case nameof(DailyCuttingGasCylindersRequired):
-                    case nameof(DailyMedicalOxygenCylindersRequired):
-                        DomainExceptionValidation.When(value < 0, $"Invalid {propertyName}. The {propertyName} cannot be negative.");
-                        break;
-                }
-            }
-
-            private static void ValidateDomain(string propertyName, string value)
-            {
-                switch (propertyName)
-                {
-                    case nameof(OtherLogisticRequirements):
-                        DomainExceptionValidation.When(string.IsNullOrWhiteSpace(value), $"{propertyName} cannot be null or whitespace.");
-                        break;
-                }
-            }
+                      
 
             public Builder WithId(int id)
             {
-                ValidateDomain(nameof(Id), id); 
+                SupportRequirementsValidation.ValidateId(id);
                 _supportRequirements.Id = id;
                 return this;
             }
 
             public Builder WithTotalPeopleToTransport(int totalPeopleToTransport)
             {
-                ValidateDomain(nameof(TotalPeopleToTransport), totalPeopleToTransport);
+                SupportRequirementsValidation.ValidateTotalPeopleToTransport(totalPeopleToTransport);
                 _supportRequirements.TotalPeopleToTransport = totalPeopleToTransport;
                 return this;
             }
 
             public Builder WithTotalDogsToTransport(int totalDogsToTransport)
             {
-                ValidateDomain(nameof(TotalDogsToTransport), totalDogsToTransport);
+                SupportRequirementsValidation.ValidateTotalDogsToTransport(totalDogsToTransport);
                 _supportRequirements.TotalDogsToTransport = totalDogsToTransport;
                 return this;
             }
 
             public Builder WithTotalEquipmentWeightInTons(double totalEquipmentWeightInTons)
             {
-                ValidateDomain(nameof(TotalEquipmentWeightInTons), totalEquipmentWeightInTons);
+                SupportRequirementsValidation.ValidateTotalEquipmentWeightInTons(totalEquipmentWeightInTons);
                 _supportRequirements.TotalEquipmentWeightInTons = totalEquipmentWeightInTons;
                 return this;
             }
 
             public Builder WithTotalEquipmentVolumeInCubicMeters(double totalEquipmentVolumeInCubicMeters)
             {
-                ValidateDomain(nameof(TotalEquipmentVolumeInCubicMeters), totalEquipmentVolumeInCubicMeters);
+                SupportRequirementsValidation.ValidateTotalEquipmentVolumeInCubicMeters(totalEquipmentVolumeInCubicMeters);
                 _supportRequirements.TotalEquipmentVolumeInCubicMeters = totalEquipmentVolumeInCubicMeters;
                 return this;
             }
 
             public Builder WithDailyGasolineRequirementInLiters(double dailyGasolineRequirementInLiters)
             {
-                ValidateDomain(nameof(DailyGasolineRequirementInLiters), dailyGasolineRequirementInLiters);
+                SupportRequirementsValidation.ValidateDailyGasolineRequirementInLiters(dailyGasolineRequirementInLiters);
                 _supportRequirements.DailyGasolineRequirementInLiters = dailyGasolineRequirementInLiters;
                 return this;
             }
 
             public Builder WithDailyDieselRequirementInLiters(double dailyDieselRequirementInLiters)
             {
-                ValidateDomain(nameof(DailyDieselRequirementInLiters), dailyDieselRequirementInLiters);
+                SupportRequirementsValidation.ValidateDailyDieselRequirementInLiters(dailyDieselRequirementInLiters);
                 _supportRequirements.DailyDieselRequirementInLiters = dailyDieselRequirementInLiters;
                 return this;
             }
 
             public Builder WithDailyCuttingGasCylindersRequired(int dailyCuttingGasCylindersRequired)
             {
-                ValidateDomain(nameof(DailyCuttingGasCylindersRequired), dailyCuttingGasCylindersRequired);
+                SupportRequirementsValidation.ValidateDailyCuttingGasCylindersRequired(dailyCuttingGasCylindersRequired);
                 _supportRequirements.DailyCuttingGasCylindersRequired = dailyCuttingGasCylindersRequired;
                 return this;
             }
 
             public Builder WithDailyMedicalOxygenCylindersRequired(int dailyMedicalOxygenCylindersRequired)
             {
-                ValidateDomain(nameof(DailyMedicalOxygenCylindersRequired), dailyMedicalOxygenCylindersRequired);
+                SupportRequirementsValidation.ValidateDailyMedicalOxygenCylindersRequired(dailyMedicalOxygenCylindersRequired);
                 _supportRequirements.DailyMedicalOxygenCylindersRequired = dailyMedicalOxygenCylindersRequired;
                 return this;
             }
 
             public Builder WithRequiredBaseOperationSpaceInSquareMeters(double requiredBaseOperationSpaceInSquareMeters)
             {
-                ValidateDomain(nameof(RequiredBaseOperationSpaceInSquareMeters), requiredBaseOperationSpaceInSquareMeters);
+                SupportRequirementsValidation.ValidateRequiredBaseOperationSpaceInSquareMeters(requiredBaseOperationSpaceInSquareMeters);
                 _supportRequirements.RequiredBaseOperationSpaceInSquareMeters = requiredBaseOperationSpaceInSquareMeters;
                 return this;
             }
 
             public Builder WithOtherLogisticRequirements(string otherLogisticRequirements)
             {
-                ValidateDomain(nameof(OtherLogisticRequirements), otherLogisticRequirements);
+                SupportRequirementsValidation.ValidateOtherLogisticRequirements(otherLogisticRequirements);
                 _supportRequirements.OtherLogisticRequirements = otherLogisticRequirements;
                 return this;
             }

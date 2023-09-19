@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace InsaragSystem.Domain.Validations
+namespace InsaragSystem.Domain.Validations.TeamValidations
 {
     public static class ContactDetailsValidation
     {
