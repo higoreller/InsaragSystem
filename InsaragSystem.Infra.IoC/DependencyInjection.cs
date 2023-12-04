@@ -1,4 +1,7 @@
-﻿using InsaragSystem.Domain.Interfaces;
+﻿using InsaragSystem.Application.Interfaces;
+using InsaragSystem.Application.Mappings;
+using InsaragSystem.Application.Services;
+using InsaragSystem.Domain.Interfaces;
 using InsaragSystem.Domain.Interfaces.DisasterInterfaces;
 using InsaragSystem.Domain.Interfaces.SectorInterfaces;
 using InsaragSystem.Infra.Data.Context;
@@ -26,6 +29,11 @@ namespace InsaragSystem.Infra.IoC
             services.AddScoped<ISubdivisionRepository, SubdivisionRepository>();
             services.AddScoped<ISubfieldRepository, SubfieldRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IEarthquakeService, EarthquakeService>();
+            services.AddScoped<IFloodService, FloodService>();
+            services.AddScoped<IWildfireService, WildfireService>();
+            services.AddScoped<ITeamService, TeamService>();
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             return services;
         }

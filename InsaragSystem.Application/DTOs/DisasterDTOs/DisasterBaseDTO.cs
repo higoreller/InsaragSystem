@@ -49,7 +49,7 @@ namespace InsaragSystem.Application.DTOs.DisasterDTOs
         public int EstimatedDisplacedPersons { get; set; }
         public decimal EstimatedEconomicLoss { get; set; }
         public List<TeamDTO> Teams { get; set; }  
-        public List<SectorDTO> Sectors { get; set; } // List of Sector DTOs
+        public List<SectorDTO> Sectors { get; set; }
 
     }
 }

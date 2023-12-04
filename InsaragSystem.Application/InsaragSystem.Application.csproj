@@ -14,8 +14,4 @@
     <ProjectReference Include="..\InsaragSystem.Domain\InsaragSystem.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
