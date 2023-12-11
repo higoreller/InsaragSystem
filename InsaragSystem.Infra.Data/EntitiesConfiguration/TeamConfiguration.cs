@@ -14,18 +14,12 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<Team> builder)
         {
             builder.HasKey(t => t.Id);
-            
-            builder.HasOne(t => t.ContactDetails)
-                .WithOne()
-                .HasForeignKey<Team>("ContactDetailsId");
 
-            builder.HasOne(t => t.SupportRequirements)
-                .WithOne()
-                .HasForeignKey<Team>("SupportRequirementsId");
+            builder.OwnsOne(t => t.ContactDetails);
 
-            builder.HasOne(t => t.TeamDetails)
-                .WithOne()
-                .HasForeignKey<Team>("TeamDetailsId");
+            builder.OwnsOne(t => t.SupportRequirements);
+
+            builder.OwnsOne(t => t.TeamDetails);
 
             builder.HasOne(t => t.Disaster)
                 .WithMany(d => d.Teams)

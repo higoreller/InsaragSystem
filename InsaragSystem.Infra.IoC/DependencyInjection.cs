@@ -35,6 +35,9 @@ namespace InsaragSystem.Infra.IoC
             services.AddScoped<ITeamService, TeamService>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
+            var myHandlers = AppDomain.CurrentDomain.Load("InsaragSystem.Application");
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(myHandlers));
+
             return services;
         }
     }

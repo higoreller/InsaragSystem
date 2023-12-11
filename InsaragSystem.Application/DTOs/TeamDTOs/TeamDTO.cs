@@ -15,8 +15,8 @@ namespace InsaragSystem.Application.DTOs.TeamDTOs
         public SupportRequirements SupportRequirements { get; set; }
         public TeamDetails TeamDetails { get; set; }
         public int DisasterId { get; set; }
-        public DisasterBaseDTO Disaster { get; set; }  // You'd need a DTO for DisasterBase
+        public DisasterBaseDTO Disaster { get; set; }  
         public int? AssignedSectorId { get; set; }
-        public SectorDTO AssignedSector { get; set; }  // You'd need a DTO for Sector
+        public SectorDTO AssignedSector { get; set; } 
     }
 }

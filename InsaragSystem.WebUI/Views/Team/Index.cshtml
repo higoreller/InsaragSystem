@@ -24,9 +24,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TeamDetails.Name)
-                </th>
+                <th>@Html.DisplayNameFor(model => model.First().TeamDetails.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TeamDetails.CountryOfOrigin)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Disaster.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.First().AssignedSector.Id)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TeamDetails.NumberOfStructuralEngineers)</th>
+                <th>@Html.DisplayNameFor(model => model.First().TeamDetails.DaysOfWaterAutonomy)</th>
                 <th></th>
             </tr>
         </thead>
@@ -34,9 +37,12 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TeamDetails.Name)
-                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.TeamDetails.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TeamDetails.CountryOfOrigin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Disaster.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AssignedSector.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TeamDetails.NumberOfStructuralEngineers)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TeamDetails.DaysOfWaterAutonomy)</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
                             <span class="fas fa-edit">Edit</span>

@@ -42,12 +42,12 @@ namespace InsaragSystem.Infra.Data.Context
 
             builder.Entity<Sector>(entity =>
             {
-                entity.OwnsMany(e => e.Subdivisions);
+                entity.HasMany(e => e.Subdivisions);
             });
 
             builder.Entity<Subdivision>(entity => 
             { 
-                entity.OwnsMany(e => e.Subfields);
+                entity.HasMany(e => e.Subfields);
             });
 
             builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);

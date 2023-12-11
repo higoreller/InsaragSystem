@@ -3,6 +3,7 @@ using InsaragSystem.Application.DTOs;
 using InsaragSystem.Application.DTOs.DisasterDTOs;
 using InsaragSystem.Application.DTOs.SectorDTOs;
 using InsaragSystem.Application.DTOs.TeamDTOs;
+using InsaragSystem.Application.Teams.Commands;
 using InsaragSystem.Domain.Entities;
 using InsaragSystem.Domain.Entities.Disaster;
 using InsaragSystem.Domain.Entities.Sector;
@@ -31,6 +32,7 @@ namespace InsaragSystem.Application.Mappings
             CreateMap<TeamBase, TeamBaseDTO>().ReverseMap();
             CreateMap<Team, TeamDTO>().ReverseMap();
             CreateMap<GpsCoordinates, GpsCoordinatesDTO>().ReverseMap();
+            
         }
     }
 }
