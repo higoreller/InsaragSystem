@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Team\Index1.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\InsaragSystem.Infra.IoC\InsaragSystem.Infra.IoC.csproj" />
   </ItemGroup>
 

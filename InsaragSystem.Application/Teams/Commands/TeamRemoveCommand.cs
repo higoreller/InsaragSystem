@@ -13,7 +13,7 @@ namespace InsaragSystem.Application.Teams.Commands
         public int Id { get; set; }
         public TeamRemoveCommand(int teamId)
         {
-            Id = Id;
+            Id = teamId;
         }
     }
 }

@@ -65,5 +65,30 @@ namespace InsaragSystem.WebUI.Controllers
 
             return View(teamDto);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var teamDto = await _teamService.GetTeamById(id.Value);
+            if (teamDto == null) return NotFound();
+            return View(teamDto);
+        }
+
+        [HttpPost(), ActionName("Delete")]
+        public async Task<IActionResult>DeleteConfirmed(int id)
+        {
+            await _teamService.RemoveTeam(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+            var teamDto = await _teamService.GetTeamById(id.Value);
+            if (teamDto == null) return NotFound();
+            return View(teamDto);
+        }
     }
 }

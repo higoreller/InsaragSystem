@@ -1,0 +1,79 @@
+﻿@model InsaragSystem.Application.DTOs.TeamDTOs.TeamDTO
+
+<h3>Team Details</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.OlympicCountryCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.OlympicCountryCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.CountryOfOrigin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.CountryOfOrigin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.ResponseType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.ResponseType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.InsaragClassification)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.InsaragClassification)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.TotalDeployedPeople)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.TotalDeployedPeople)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.TotalDeployedDogs)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.TotalDeployedDogs)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamDetails.HasTechnicalSearchCapability)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TeamDetails.HasTechnicalSearchCapability)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ContactDetails.Contact1NameOrTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ContactDetails.Contact1NameOrTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SupportRequirements.TotalPeopleToTransport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SupportRequirements.TotalPeopleToTransport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DisasterId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DisasterId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
