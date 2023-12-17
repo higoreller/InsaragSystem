@@ -8,6 +8,6 @@ namespace InsaragSystem.Application.Teams.Commands
 {
     public class TeamUpdateCommand : TeamCommand
     {
-        public int TeamId { get; set; }
+        public int Id { get; set; }
     }
 }

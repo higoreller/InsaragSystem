@@ -1,0 +1,382 @@
+﻿@model InsaragSystem.Application.DTOs.TeamDTOs.TeamDTO
+
+<h3>Edit Team</h3>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="TeamDetails.Name" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.Name" class="form-control" />
+                    <span asp-validation-for="TeamDetails.Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.OlympicCountryCode" class="col-md-2 control-label">Olympic Country Code</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.OlympicCountryCode" class="form-control" />
+                    <span asp-validation-for="TeamDetails.OlympicCountryCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.CountryOfOrigin" class="col-md-2 control-label">Country of Origin</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.CountryOfOrigin" class="form-control" />
+                    <span asp-validation-for="TeamDetails.CountryOfOrigin" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.ResponseType" class="col-md-2 control-label">Response Type</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.ResponseType" class="form-control" />
+                    <span asp-validation-for="TeamDetails.ResponseType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label asp-for="TeamDetails.InsaragClassification" class="col-md-2 control-label">INSARAG Classification</label>
+                <div class="col-md-10 mb-4">
+                    <input asp-for="TeamDetails.InsaragClassification" class="form-control" />
+                    <span asp-validation-for="TeamDetails.InsaragClassification" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 mb-4">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.TotalDeployedPeople" /> Total Deployed People
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 mb-4">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.TotalDeployedDogs" /> Total Deployed Dogs
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasTechnicalSearchCapability" /> Has Technical Search Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasCanineSearchCapability" /> Has Canine Search Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasRescueCapability" /> Has Rescue Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasMedicalCapability" /> Has Medical Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasHazardousMaterialDetectionCapability " /> Has Hazardous Material Detection Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.HasProvisionalOSOCCCapability" /> Has Provisional OSOCC Capability
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 mb-4">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="TeamDetails.CanSupportUC" /> Can Support UC
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.OtherCapabilities" class="col-md-2 control-label">Other Capabilities</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.OtherCapabilities" class="form-control" />
+                    <span asp-validation-for="TeamDetails.OtherCapabilities" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.NumberOfStructuralEngineers" class="col-md-2 control-label">Number of Structural Engineers</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.NumberOfStructuralEngineers" class="form-control" type="number" />
+                    <span asp-validation-for="TeamDetails.NumberOfStructuralEngineers" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.DaysOfWaterAutonomy" class="col-md-2 control-label">Days of Water Autonomy</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.DaysOfWaterAutonomy" class="form-control" type="number" />
+                    <span asp-validation-for="TeamDetails.DaysOfWaterAutonomy" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.DaysOfFoodAutonomy" class="col-md-2 control-label">Days of Food Autonomy</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.DaysOfFoodAutonomy" class="form-control" type="number" />
+                    <span asp-validation-for="TeamDetails.DaysOfFoodAutonomy" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.ArrivalPoint" class="col-md-2 control-label">Arrival Point</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.ArrivalPoint" class="form-control" />
+                    <span asp-validation-for="TeamDetails.ArrivalPoint" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.AircraftType" class="col-md-2 control-label">Aircraft Type</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.AircraftType" class="form-control" />
+                    <span asp-validation-for="TeamDetails.AircraftType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamDetails.EstimatedArrivalDateTime" class="col-md-2 control-label">Estimated Arrival DateTime</label>
+                <div class="col-md-10">
+                    <input asp-for="TeamDetails.EstimatedArrivalDateTime" type="datetime-local" class="form-control" />
+                    <span asp-validation-for="TeamDetails.EstimatedArrivalDateTime" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <!-- Fields for ContactDetails -->
+            <!-- Contact 1 -->
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact1NameOrTitle" class="col-md-2 control-label">Contact 1 Name/Title</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact1NameOrTitle" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact1NameOrTitle" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact1MobilePhoneNumber" class="col-md-2 control-label">Mobile Phone</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact1MobilePhoneNumber" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact1MobilePhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact1Email  " class="col-md-2 control-label">Contact Email</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact1Email  " class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact1Email " class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact1SatellitePhoneNumber" class="col-md-2 control-label">Satellite Phone</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact1SatellitePhoneNumber" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact1SatellitePhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Contact 2 -->
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact2NameOrTitle" class="col-md-2 control-label">Contact 2 Name/Title</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact2NameOrTitle" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact2NameOrTitle" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact2Email  " class="col-md-2 control-label">Contact Email</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact2Email  " class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact2Email " class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact2MobilePhoneNumber" class="col-md-2 control-label">Mobile Phone</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact2MobilePhoneNumber" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact2MobilePhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.Contact2SatellitePhoneNumber" class="col-md-2 control-label">Satellite Phone</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.Contact2SatellitePhoneNumber" class="form-control" />
+                    <span asp-validation-for="ContactDetails.Contact2SatellitePhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <!-- SupportRequirementsDTO Fields -->
+            <div class="form-group">
+                <label asp-for="SupportRequirements.TotalPeopleToTransport" class="col-md-2 control-label">Total People to Transport</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.TotalPeopleToTransport" class="form-control" type="number" />
+                    <span asp-validation-for="SupportRequirements.TotalPeopleToTransport" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.TotalDogsToTransport" class="col-md-2 control-label">Total Dogs to Transport</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.TotalDogsToTransport" class="form-control" type="number" />
+                    <span asp-validation-for="SupportRequirements.TotalDogsToTransport" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.DailyGasolineRequirementInLiters" class="col-md-2 control-label">Daily Gasoline Requirement (Liters)</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.DailyGasolineRequirementInLiters" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="SupportRequirements.DailyGasolineRequirementInLiters" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.DailyDieselRequirementInLiters" class="col-md-2 control-label">Daily Diesel Requirement (Liters)</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.DailyDieselRequirementInLiters" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="SupportRequirements.DailyDieselRequirementInLiters" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.DailyCuttingGasCylindersRequired" class="col-md-2 control-label">Daily Cutting Gas Cylinders Required</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.DailyCuttingGasCylindersRequired" class="form-control" type="number" />
+                    <span asp-validation-for="SupportRequirements.DailyCuttingGasCylindersRequired" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.DailyMedicalOxygenCylindersRequired" class="col-md-2 control-label">Daily Medical Oxygen Cylinders Required</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.DailyMedicalOxygenCylindersRequired" class="form-control" type="number" />
+                    <span asp-validation-for="SupportRequirements.DailyMedicalOxygenCylindersRequired" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.RequiredBaseOperationSpaceInSquareMeters" class="col-md-2 control-label">Required Base Operation Space (Square Meters)</label>
+                <div class="col-md-10">
+                    <input asp-for="SupportRequirements.RequiredBaseOperationSpaceInSquareMeters" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="SupportRequirements.RequiredBaseOperationSpaceInSquareMeters" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupportRequirements.OtherLogisticRequirements" class="col-md-2 control-label">Other Logistic Requirements</label>
+                <div class="col-md-10">
+                    <textarea asp-for="SupportRequirements.OtherLogisticRequirements" class="form-control"></textarea>
+                    <span asp-validation-for="SupportRequirements.OtherLogisticRequirements" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Fields for base operational -->
+            <div class="form-group">
+                <label asp-for="ContactDetails.BaseOperationLocation" class="col-md-2 control-label">Base Operation Location</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.BaseOperationLocation" class="form-control" />
+                    <span asp-validation-for="ContactDetails.BaseOperationLocation" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.RadioFrequencyInMHz" class="col-md-2 control-label">Radio Frequency (MHz)</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.RadioFrequencyInMHz" class="form-control" />
+                    <span asp-validation-for="ContactDetails.RadioFrequencyInMHz" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactDetails.WorkSiteGpsCoordinates" class="col-md-2 control-label">Work Site GPS Coordinates</label>
+                <div class="col-md-10">
+                    <input asp-for="ContactDetails.WorkSiteGpsCoordinates.Latitude" class="form-control mb-4" placeholder="Latitude" />
+                    <input asp-for="ContactDetails.WorkSiteGpsCoordinates.Longitude" class="form-control mb-4" placeholder="Longitude" />
+                    <span asp-validation-for="ContactDetails.WorkSiteGpsCoordinates" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DisasterId" class="col-md-2 control-label">Disaster ID</label>
+                <div class="col-md-10">
+                    <input asp-for="DisasterId" class="form-control" type="number" />
+                    <span asp-validation-for="DisasterId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AssignedSectorId" class="col-md-2 control-label">Assigned Sector ID</label>
+                <div class="col-md-10">
+                    <input asp-for="AssignedSectorId" class="form-control" type="number" />
+                    <span asp-validation-for="AssignedSectorId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

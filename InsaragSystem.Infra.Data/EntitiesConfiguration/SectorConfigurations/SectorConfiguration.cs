@@ -21,9 +21,7 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration.SectorConfigurations
                    .WithOne(sd => sd.Sector)
                    .HasForeignKey(sd => sd.SectorId);
 
-            builder.HasMany(s => s.AssignedTeams)
-                   .WithOne(t => t.AssignedSector)
-                   .HasForeignKey(t => t.AssignedSectorId);
+            builder.HasMany(e => e.AssignedTeams).WithOne().HasForeignKey(e => e.AssignedSectorId);
 
             builder.HasOne(t => t.Disaster)
                 .WithMany(d => d.Sectors)

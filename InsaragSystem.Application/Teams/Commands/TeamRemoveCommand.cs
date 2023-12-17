@@ -10,10 +10,10 @@ namespace InsaragSystem.Application.Teams.Commands
 {
     public class TeamRemoveCommand : IRequest<Team>
     {
-        public int TeamId { get; set; }
+        public int Id { get; set; }
         public TeamRemoveCommand(int teamId)
         {
-            TeamId = teamId;
+            Id = Id;
         }
     }
 }

@@ -13,7 +13,7 @@
         <div>
             <div class="pull-left">
                 <a asp-action="Create" class="btn btn-primary">
-                    <span title="Register New" class="fas fa-plus"></span> Register New
+                    <span title="Register New Team" class="fas fa-plus"></span> Register New Team
                 </a>
             </div>
         </div>
@@ -26,8 +26,6 @@
             <tr>
                 <th>@Html.DisplayNameFor(model => model.First().TeamDetails.Name)</th>
                 <th>@Html.DisplayNameFor(model => model.First().TeamDetails.CountryOfOrigin)</th>
-                <th>@Html.DisplayNameFor(model => model.First().Disaster.Name)</th>
-                <th>@Html.DisplayNameFor(model => model.First().AssignedSector.Id)</th>
                 <th>@Html.DisplayNameFor(model => model.First().TeamDetails.NumberOfStructuralEngineers)</th>
                 <th>@Html.DisplayNameFor(model => model.First().TeamDetails.DaysOfWaterAutonomy)</th>
                 <th></th>
@@ -39,8 +37,6 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.TeamDetails.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.TeamDetails.CountryOfOrigin)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Disaster.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.AssignedSector.Id)</td>
                     <td>@Html.DisplayFor(modelItem => item.TeamDetails.NumberOfStructuralEngineers)</td>
                     <td>@Html.DisplayFor(modelItem => item.TeamDetails.DaysOfWaterAutonomy)</td>
                     <td>

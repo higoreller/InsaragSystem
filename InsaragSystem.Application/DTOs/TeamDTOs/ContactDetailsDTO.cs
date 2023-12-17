@@ -21,6 +21,6 @@ namespace InsaragSystem.Application.DTOs.TeamDTOs
         public string BaseOperationLocation { get; set; }
         public string RadioFrequencyInMHz { get; set; }
 
-        public GpsCoordinatesDTO WorkSiteGpsCoordinates { get; set; }  // Assuming you'll create a DTO for GpsCoordinates
+        public GpsCoordinatesDTO WorkSiteGpsCoordinates { get; set; }  
     }
 }

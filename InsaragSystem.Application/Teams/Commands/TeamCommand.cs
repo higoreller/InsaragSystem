@@ -10,7 +10,8 @@ namespace InsaragSystem.Application.Teams.Commands
 {
     public abstract class TeamCommand : IRequest<Team>
     {
-        public int TeamId { get; set; }
+        public int Id { get; set; }
+        public int DisasterId { get; set; }
         public ContactDetails ContactDetails { get; set; }
         public SupportRequirements SupportRequirements { get; set; }
         public TeamDetails TeamDetails { get; set; }

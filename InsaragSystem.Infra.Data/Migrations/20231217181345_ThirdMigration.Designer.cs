@@ -4,6 +4,7 @@ using InsaragSystem.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsaragSystem.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231217181345_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,24 +203,14 @@ namespace InsaragSystem.Infra.Data.Migrations
                     b.Property<int?>("AssignedSectorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DisasterBaseDisasterId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DisasterId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SectorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AssignedSectorId");
 
-                    b.HasIndex("DisasterBaseDisasterId");
-
                     b.HasIndex("DisasterId");
-
-                    b.HasIndex("SectorId");
 
                     b.ToTable("Teams");
                 });
@@ -300,22 +293,14 @@ namespace InsaragSystem.Infra.Data.Migrations
             modelBuilder.Entity("InsaragSystem.Domain.Entities.Team.Team", b =>
                 {
                     b.HasOne("InsaragSystem.Domain.Entities.Sector.Sector", null)
-                        .WithMany()
+                        .WithMany("AssignedTeams")
                         .HasForeignKey("AssignedSectorId");
 
                     b.HasOne("InsaragSystem.Domain.Entities.Disaster.DisasterBase", null)
                         .WithMany("Teams")
-                        .HasForeignKey("DisasterBaseDisasterId");
-
-                    b.HasOne("InsaragSystem.Domain.Entities.Disaster.DisasterBase", null)
-                        .WithMany()
                         .HasForeignKey("DisasterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("InsaragSystem.Domain.Entities.Sector.Sector", null)
-                        .WithMany("AssignedTeams")
-                        .HasForeignKey("SectorId");
 
                     b.OwnsOne("InsaragSystem.Domain.Entities.Team.ContactDetails", "ContactDetails", b1 =>
                         {

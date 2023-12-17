@@ -1,4 +1,6 @@
-﻿using InsaragSystem.Domain.Entities.Team;
+﻿using InsaragSystem.Domain.Entities.Disaster;
+using InsaragSystem.Domain.Entities.Sector;
+using InsaragSystem.Domain.Entities.Team;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -21,14 +23,16 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
 
             builder.OwnsOne(t => t.TeamDetails);
 
-            builder.HasOne(t => t.Disaster)
-                .WithMany(d => d.Teams)
+            
+            builder.HasOne<DisasterBase>() 
+                .WithMany()
                 .HasForeignKey(t => t.DisasterId);
 
-            builder.HasOne(t => t.AssignedSector)
+            builder.HasOne<Sector>()
                 .WithMany()
                 .HasForeignKey(t => t.AssignedSectorId)
                 .IsRequired(false);
+
         }
     }
 }

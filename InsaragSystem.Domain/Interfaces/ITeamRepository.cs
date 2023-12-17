@@ -11,7 +11,6 @@ namespace InsaragSystem.Domain.Interfaces
     {
         Task<IEnumerable<Team>> GetTeamsAsync();
         Task<Team> GetByIdAsync(int? id);
-        Task<Team> GetTeamDisasterAsync(int? id);
         Task<Team> CreateAsync(Team team);
         Task<Team> UpdateAsync(Team team);
         Task<Team> RemoveAsync(Team team);

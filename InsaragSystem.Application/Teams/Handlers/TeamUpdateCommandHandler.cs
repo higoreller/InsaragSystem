@@ -21,7 +21,7 @@ namespace InsaragSystem.Application.Teams.Handlers
 
         public async Task<Team> Handle(TeamUpdateCommand request, CancellationToken cancellationToken)
         {
-            var team = await _teamRepository.GetByIdAsync(request.TeamId);
+            var team = await _teamRepository.GetByIdAsync(request.Id);
 
             if(team == null)
             {

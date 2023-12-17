@@ -29,13 +29,6 @@ namespace InsaragSystem.Infra.Data.Repositories
             return await _teamContext.Teams.FindAsync(id);
         }
 
-        public async Task<Team> GetTeamDisasterAsync(int? id)
-        {
-            if (id == null) return null;
-
-            return await _teamContext.Teams.Include(t => t.Disaster).FirstOrDefaultAsync(t => t.Id == id);
-        }
-
         public async Task<IEnumerable<Team>> GetTeamsAsync()
         {
             return await _teamContext.Teams.ToListAsync();

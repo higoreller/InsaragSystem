@@ -21,9 +21,13 @@ namespace InsaragSystem.Application.Teams.Handlers
 
         public async Task<Team> Handle(TeamCreateCommand request, CancellationToken cancellationToken)
         {
-            var team = new Team(request.ContactDetails, request.SupportRequirements, request.TeamDetails);
+            var team = new Team(request.ContactDetails, request.SupportRequirements, request.TeamDetails)
+            {
+                DisasterId = request.DisasterId 
+            };
 
-            if(team == null)
+
+            if (team == null)
             {
                 throw new ApplicationException($"Error creating entity.");
             } else
