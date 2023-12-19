@@ -23,10 +23,11 @@ namespace InsaragSystem.Application.Teams.Handlers
         {
             var team = await _teamRepository.GetByIdAsync(request.Id);
 
-            if(team == null)
+            if (team == null)
             {
                 throw new ApplicationException($"Entity could not be found.");
-            } else
+            }
+            else
             {
                 team.UpdateContactDetails(request.ContactDetails);
                 team.UpdateTeamDetails(request.TeamDetails);

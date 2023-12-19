@@ -20,7 +20,7 @@ namespace InsaragSystem.Application.Teams.Handlers
         }
         public async Task<Team> Handle(GetTeamByIdQuery request, CancellationToken cancellationToken)
         {
-            return await _teamRepository.GetByIdAsync(request.TeamId);
+            return await _teamRepository.GetByIdAsync(request.Id);
         }
     }
 }

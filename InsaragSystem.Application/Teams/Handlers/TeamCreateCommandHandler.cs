@@ -23,14 +23,15 @@ namespace InsaragSystem.Application.Teams.Handlers
         {
             var team = new Team(request.ContactDetails, request.SupportRequirements, request.TeamDetails)
             {
-                DisasterId = request.DisasterId 
+                DisasterId = request.DisasterId
             };
 
 
             if (team == null)
             {
                 throw new ApplicationException($"Error creating entity.");
-            } else
+            }
+            else
             {
                 return await _teamRepository.CreateAsync(team);
             }

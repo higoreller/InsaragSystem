@@ -1,3 +1,4 @@
+using InsaragSystem.Application.Clients;
 using InsaragSystem.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 // Add services from Infra.IoC - Dependency injection.
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddHttpClient<ZipcodeApiClient>();
 
 var app = builder.Build();
 

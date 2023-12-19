@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using InsaragSystem.Application.Addresses.Commands;
 using InsaragSystem.Application.Addresses.Queries;
+using InsaragSystem.Application.Clients;
 
 namespace InsaragSystem.Application.Services
 {
@@ -14,11 +15,13 @@ namespace InsaragSystem.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
+        private readonly ZipcodeApiClient _zipcodeApiClient;
 
-        public AddressService(IMapper mapper, IMediator mediator)
+        public AddressService(IMapper mapper, IMediator mediator, ZipcodeApiClient zipcodeApiClient)
         {
             _mapper = mapper;
             _mediator = mediator;
+            _zipcodeApiClient = zipcodeApiClient;
         }
 
         public async Task AddAddress(AddressDTO addressDto)
@@ -58,6 +61,15 @@ namespace InsaragSystem.Application.Services
         {
             var updateCommand = _mapper.Map<AddressUpdateCommand>(addressDto);
             await _mediator.Send(updateCommand);
+        }
+
+        public async Task AddAddressUsingZipCode(string zipCode, int teamId)
+        {
+            var addressDto = await _zipcodeApiClient.GetAddressByZipcodeAsync(zipCode);
+            addressDto.TeamId = teamId; 
+
+            var createCommand = _mapper.Map<AddressCreateCommand>(addressDto);
+            await _mediator.Send(createCommand);
         }
     }
 }

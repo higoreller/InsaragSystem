@@ -10,11 +10,11 @@ namespace InsaragSystem.Application.Teams.Queries
 {
     public class GetTeamByIdQuery : IRequest<Team>
     {
-        public int TeamId { get; set; }
+        public int Id { get; set; }
         public GetTeamByIdQuery(int teamId)
         {
 
-            TeamId = teamId;
+            Id = teamId;
 
         }
     }

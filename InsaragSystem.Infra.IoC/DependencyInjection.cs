@@ -29,11 +29,12 @@ namespace InsaragSystem.Infra.IoC
             services.AddScoped<ISubdivisionRepository, SubdivisionRepository>();
             services.AddScoped<ISubfieldRepository, SubfieldRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IEarthquakeService, EarthquakeService>();
             services.AddScoped<IFloodService, FloodService>();
             services.AddScoped<IWildfireService, WildfireService>();
             services.AddScoped<ITeamService, TeamService>();
-            services.AddScoped<IAddressService, AdressService>();
+            services.AddScoped<IAddressService, AddressService>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             var myHandlers = AppDomain.CurrentDomain.Load("InsaragSystem.Application");
