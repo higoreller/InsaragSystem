@@ -12,18 +12,18 @@ using System.Reflection.Emit;
 
 namespace InsaragSystem.Application.Clients
 {
-    public class ZipcodeApiClient
+    public class ZipCodeApiClient
     {
         private readonly HttpClient _httpClient;
 
-        public ZipcodeApiClient(HttpClient httpClient)
+        public ZipCodeApiClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<AddressDTO> GetAddressByZipcodeAsync(string zipCode)
+        public async Task<AddressDTO> GetAddressByZipCodeAsync(string zipCode)
         {
-            var response = await _httpClient.GetAsync($"https://viacep.com.br/ws/{zipCode}/json/");
+            var response = await _httpClient.GetAsync($"{zipCode}/json/");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();

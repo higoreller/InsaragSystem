@@ -19,8 +19,6 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.City).HasMaxLength(50);
             builder.Property(x => x.State).HasMaxLength(50);
             builder.Property(x => x.ZipCode).HasMaxLength(10);
-
-            builder.HasOne<Team>().WithOne().HasForeignKey<Address>(t => t.TeamId);
         }
     }
 }

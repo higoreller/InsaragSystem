@@ -15,9 +15,9 @@ namespace InsaragSystem.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
-        private readonly ZipcodeApiClient _zipcodeApiClient;
+        private readonly ZipCodeApiClient _zipcodeApiClient;
 
-        public AddressService(IMapper mapper, IMediator mediator, ZipcodeApiClient zipcodeApiClient)
+        public AddressService(IMapper mapper, IMediator mediator, ZipCodeApiClient zipcodeApiClient)
         {
             _mapper = mapper;
             _mediator = mediator;
@@ -65,7 +65,7 @@ namespace InsaragSystem.Application.Services
 
         public async Task AddAddressUsingZipCode(string zipCode, int teamId)
         {
-            var addressDto = await _zipcodeApiClient.GetAddressByZipcodeAsync(zipCode);
+            var addressDto = await _zipcodeApiClient.GetAddressByZipCodeAsync(zipCode);
             addressDto.TeamId = teamId; 
 
             var createCommand = _mapper.Map<AddressCreateCommand>(addressDto);

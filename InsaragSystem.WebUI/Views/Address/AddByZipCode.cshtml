@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Add Address by Zip Code";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="AddByZipCode" method="post">
+    <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+    </div>
+    <div class="form-group">
+        <label for="teamId">Team ID</label>
+        <input type="number" class="form-control" id="teamId" name="teamId" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Address</button>
+</form>

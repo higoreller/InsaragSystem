@@ -14,5 +14,6 @@ namespace InsaragSystem.Application.Interfaces
         Task AddAddress(AddressDTO addressDto);
         Task UpdateAddress(AddressDTO addressDto);
         Task RemoveAddress(int? id);
+        Task AddAddressUsingZipCode(string zipCode, int teamId);
     }
 }

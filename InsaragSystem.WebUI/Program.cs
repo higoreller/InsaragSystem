@@ -9,7 +9,11 @@ builder.Services.AddControllersWithViews();
 // Add services from Infra.IoC - Dependency injection.
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddHttpClient<ZipcodeApiClient>();
+builder.Services.AddHttpClient<ZipCodeApiClient>(client =>
+{
+    client.BaseAddress = new Uri("https://viacep.com.br/ws/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
 
 var app = builder.Build();
 

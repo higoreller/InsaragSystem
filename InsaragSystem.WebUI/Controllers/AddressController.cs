@@ -92,5 +92,21 @@ namespace InsaragSystem.WebUI.Controllers
             }
             return View(addressDto);
         }
+
+        [HttpGet]
+        public IActionResult AddByZipCode()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddByZipCode(string zipCode, int teamId)
+        {
+            await _addressService.AddAddressUsingZipCode(zipCode, teamId);
+            return RedirectToAction(nameof(Index));
+        }
+        
     }
 }
+
