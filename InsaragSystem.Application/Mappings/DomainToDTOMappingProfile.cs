@@ -31,6 +31,7 @@ namespace InsaragSystem.Application.Mappings
             CreateMap<TeamDetails, TeamDetailsDTO>().ReverseMap();
             CreateMap<TeamBase, TeamBaseDTO>().ReverseMap();
             CreateMap<Team, TeamDTO>().ReverseMap();
+            CreateMap<Address, AddressDTO>().ReverseMap();
             CreateMap<GpsCoordinates, GpsCoordinatesDTO>().ReverseMap();
             
         }

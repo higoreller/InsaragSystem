@@ -33,6 +33,7 @@ namespace InsaragSystem.Infra.IoC
             services.AddScoped<IFloodService, FloodService>();
             services.AddScoped<IWildfireService, WildfireService>();
             services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<IAddressService, AdressService>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             var myHandlers = AppDomain.CurrentDomain.Load("InsaragSystem.Application");

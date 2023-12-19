@@ -15,4 +15,9 @@
     <ProjectReference Include="..\InsaragSystem.Domain\InsaragSystem.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Addresses\Handlers\" />
+    <Folder Include="Addresses\Queries\" />
+  </ItemGroup>
+
 </Project>

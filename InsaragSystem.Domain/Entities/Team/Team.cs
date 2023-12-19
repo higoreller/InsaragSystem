@@ -86,5 +86,7 @@ namespace InsaragSystem.Domain.Entities.Team
 
         public int DisasterId { get; set; }
         public int? AssignedSectorId { get; set; }
+        public int? AddressId { get; set; }
+        public Address Address { get; set; }
     }
 }

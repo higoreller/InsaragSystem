@@ -1,4 +1,5 @@
-﻿using InsaragSystem.Domain.Entities.Disaster;
+﻿using InsaragSystem.Domain.Entities;
+using InsaragSystem.Domain.Entities.Disaster;
 using InsaragSystem.Domain.Entities.Sector;
 using InsaragSystem.Domain.Entities.Team;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration
                 .HasForeignKey(t => t.AssignedSectorId)
                 .IsRequired(false);
 
+            builder.HasOne<Address>().WithOne().HasForeignKey<Team>(t => t.AddressId).IsRequired(false);
         }
     }
 }

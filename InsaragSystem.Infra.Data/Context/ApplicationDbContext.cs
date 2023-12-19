@@ -1,4 +1,5 @@
-﻿using InsaragSystem.Domain.Entities.Disaster;
+﻿using InsaragSystem.Domain.Entities;
+using InsaragSystem.Domain.Entities.Disaster;
 using InsaragSystem.Domain.Entities.Sector;
 using InsaragSystem.Domain.Entities.Team;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,8 @@ namespace InsaragSystem.Infra.Data.Context
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Subdivision> Subdivisions { get; set; }
         public DbSet<Subfield> Subfields { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

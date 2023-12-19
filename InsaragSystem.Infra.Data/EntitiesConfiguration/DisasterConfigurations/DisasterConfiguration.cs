@@ -16,7 +16,6 @@ namespace InsaragSystem.Infra.Data.EntitiesConfiguration.DisasterConfigurations
         {
             builder.HasKey(t => t.DisasterId);
 
-            // Basic properties
             builder.Property(p => p.Name).IsRequired().HasMaxLength(250);
             builder.Property(p => p.Description).HasMaxLength(2000);
             builder.Property(p => p.InitiatingEvent).HasMaxLength(250);

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using InsaragSystem.Application.DTOs;
 using InsaragSystem.Application.DTOs.TeamDTOs;
 using InsaragSystem.Application.Teams.Commands;
 using System;
@@ -15,6 +16,8 @@ namespace InsaragSystem.Application.Mappings
         {
             CreateMap<TeamDTO, TeamCreateCommand>();
             CreateMap<TeamDTO, TeamUpdateCommand>();
+            CreateMap<AddressDTO, AddressCreateCommand>();
+            CreateMap<AddressDTO, AddressUpdateCommand>();
         }
     }
 }
