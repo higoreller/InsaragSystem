@@ -66,7 +66,7 @@ namespace InsaragSystem.Application.Services
         public async Task AddAddressUsingZipCode(string zipCode, int teamId)
         {
             var addressDto = await _zipcodeApiClient.GetAddressByZipCodeAsync(zipCode);
-            addressDto.TeamId = teamId; 
+            addressDto.TeamId = teamId;
 
             var createCommand = _mapper.Map<AddressCreateCommand>(addressDto);
             await _mediator.Send(createCommand);

@@ -28,6 +28,7 @@ namespace InsaragSystem.Application.Clients
 
             var content = await response.Content.ReadAsStringAsync();
             var address = JsonConvert.DeserializeObject<AddressResponse>(content);
+            var addressCity = address.Localidade;
 
             return new AddressDTO
             {
