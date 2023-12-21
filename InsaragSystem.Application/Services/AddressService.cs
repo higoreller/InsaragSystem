@@ -26,7 +26,7 @@ namespace InsaragSystem.Application.Services
 
         public async Task AddAddress(AddressDTO addressDto)
         {
-            var createCommand = _mapper.Map<AddressCreateCommand>(addressDto);
+            var createCommand = _mapper.Map<AddressCreateCommand>(addressDto); 
             await _mediator.Send(createCommand);
         }
 
@@ -67,6 +67,7 @@ namespace InsaragSystem.Application.Services
         {
             var addressDto = await _zipcodeApiClient.GetAddressByZipCodeAsync(zipCode);
             addressDto.TeamId = teamId;
+            addressDto.ZipCode = zipCode;
 
             var createCommand = _mapper.Map<AddressCreateCommand>(addressDto);
             await _mediator.Send(createCommand);

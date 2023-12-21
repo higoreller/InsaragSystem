@@ -21,19 +21,18 @@ namespace InsaragSystem.Application.Addresses.Handlers
 
         public async Task<Address> Handle(AddressCreateCommand request, CancellationToken cancellationToken)
         {
-            var Address = new Address()
+            var address = new Address()
             {
-                TeamId = request.TeamId 
+                AddressId = request.AddressId,
+                ZipCode = request.ZipCode,
+                Street = request.Street,
+                District = request.District,
+                City = request.City,
+                State = request.State,
+                TeamId = request.TeamId
             };
 
-
-            if (Address == null)
-            {
-                throw new ApplicationException($"Error creating entity.");
-            } else
-            {
-                return await _addressRepository.CreateAsync(Address);
-            }
+            return await _addressRepository.CreateAsync(address);
         }
     }
 }
